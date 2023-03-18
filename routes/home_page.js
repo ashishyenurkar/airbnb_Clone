@@ -45,19 +45,13 @@ app.get("/", (req, res) => {
       const projection = { name: 1, images: 1, address: 1, price: 1, };
       const pipeline = [{ $sample: { size: 100 } }];
       const findResult = await collection.aggregate(pipeline).toArray();
-     // const selected= await collection.find({}).toArray()
-      //console.log(findResult)
-
-      
-      // name: "Ribeira Charming Duplex"
-    //   let randomNumber = Math.floor(Math.random() * 10) + 5445;
-    //  const findResult = selected.slice(randomNumber, randomNumber + 100)
+     
       console.log("*******", findResult.length)
       res.render("home_page", { userInfo, findResult });
       return 'done.';
 }
     
-      return 'done.';
+      
 };//main Function End....
 
     main()
