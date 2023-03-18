@@ -105,10 +105,16 @@
         </div>
         <div class="modal-body">
           <% for( let index = 0; index < userSelect[0].reviews.length; index++ ) { %>
+            <% let reviewer_name = userSelect[0].reviews[index].reviewer_name; %>
+            <% reviewer_name ??= "review NOt Found"; %>
+            <% let comments =userSelect[0].reviews[index].comments; %>
+            <% comments ??= "Comments NOt Found"; %>
+            <% let review_Date=new Date(userSelect[0].reviews[index].date); %>
+            <%  review_Date ??= "Data NOt Found"; %>
             <ul>
-            <li><h5><%=userSelect[0].reviews[index].reviewer_name%><%=index %></h5>
-            <span><%=userSelect[0].reviews[index].comments%></span><br>
-            <span><p>The review was posted on <%= new Date(userSelect[0].reviews[index].date).toLocaleDateString() %>.</p></span>
+            <li><h5 class="fw-bold"><%=reviewer_name%></h5>
+            <span class="fw-light"><%=comments%></span><br>
+            <span><p class="fw-semibold">The review was posted on <%=review_Date.toLocaleDateString()%>.</p></span>
           </li>
           </ul>
             <% } %>
