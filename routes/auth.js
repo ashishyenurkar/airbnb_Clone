@@ -8,7 +8,7 @@ authRouter.get('/google',
   passport.authenticate('google', { scope: ['profile',"email"],session:false }));
 
 authRouter.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: 'http://localhost:3000/',session:false }),
+  passport.authenticate('google', { failureRedirect: '/',session:false }),
     async(req, res) => {
       const userInfo = (req.user)
       console.log("user info ***", userInfo, "---##$$")

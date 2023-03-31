@@ -13,7 +13,7 @@ const { MongoClient } = require('mongodb');
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENTID,
     clientSecret: process.env.CLIENTSECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: "/auth/google/callback"
   },
   async (accessToken, refreshToken, profile, done) => {
     // Connect to MongoDB

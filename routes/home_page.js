@@ -34,9 +34,16 @@ app.get("/", (req, res) => {
       
 
       const findResult = await collection.find({ 'address.country': regex }).toArray();
-      res.render("home_page", { userInfo, findResult },);
-        console.log("searchdata was send succesfully", findResult.length)
-        return " done";
+      findResult ? res.render("home_page", { userInfo, findResult }) : res.render("notFound", { searchData });
+      // if (findResult == null) {
+      //   res.render("home_page", { userInfo, findResult },);
+      //   console.log("searchdata was send succesfully", findResult.length)
+      //   return " done";
+      // }
+      // else {
+      //   res.render("notFound",{searchData}) 
+      // }
+        
       
     }
    else {//code for all data
