@@ -57,7 +57,7 @@
          <div class="gallery">
    
           <% for (let i = 0; i < findResult.length; i++) { %>
-            <a class="text-decoration-none" href="https://airbnb-hotelbooking.onrender.com/bookingPage?id=<%=findResult[i]._id%>">
+            <a class="text-decoration-none" href="/bookingPage?id=<%=findResult[i]._id%>">
             <div class="gallery-item">
               <img src="<%=findResult[i].images.picture_url%>" />
               <p class="text-dark fw-bold"><%=findResult[i].address.street%></p>
